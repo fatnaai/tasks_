@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Race Day</title>
+</head>
+<body>
+    <script lang="javascript">
+        let raceNumber = Math.floor(Math.random() * 1000);
+let raceregistration=true;
+let runnerAge=16;
+if(runnerAge>18 && raceregistration==true){
+    raceNumber+=1000;
+}
+if(runnerAge>18 && raceNumber>=1000){
+    console.log('An early adult with raceNumber:' +raceNumber+' will race at 9:30 AM');
+}
+else if(runnerAge>18 && raceNumber<1000){
+        console.log('An lately adult with raceNumber:' +raceNumber+' will race at 11:00 AM');  
+    }
+ else if(runnerAge<=18){
+     console.log('A young with raceNumber:'+raceNumber+' will race at 12:30 PM');
+ }
+    </script>
+</body>
+</html>
