@@ -10,14 +10,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+
   password: {
     type: String,
     required: true,
   },
-  repeatPassword: {
-    type: String,
-    required: false, // Change to false if not required for database storage
-    unique: false,
-  },
 });
-module.exports = mongoose.model("Users", userSchema);
+const User = mongoose.model("User", userSchema);
+module.exports = User;

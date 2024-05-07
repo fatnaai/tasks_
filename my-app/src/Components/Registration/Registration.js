@@ -1,34 +1,24 @@
 import React, { useState } from "react";
-import "./Registration.css";
+import "./Register.css";
 import axios from "axios";
 
 const Registration = () => {
-  // State for form fields
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
 
-  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (password !== repeatPassword) {
-      console.error("Passwords do not match");
-
-      return;
-    }
 
     const formData = {
       name: name,
       email: email,
       password: password,
-      repeatPassword: repeatPassword,
     };
 
     try {
-      // Send POST request to backend API
       const response = await axios.post(
-        "http://localhost:5002/api/user/registration",
+        "http://localhost:5000/register/registration",
         formData
       );
       console.log("User registered successfully:", response.data);
@@ -95,20 +85,6 @@ const Registration = () => {
                           className="form-control form-control-lg"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
-                        />
-                      </div>
-
-                      <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="repeatPassword">
-                          Repeat Password
-                        </label>
-                        <input
-                          required
-                          type="password"
-                          id="repeatPassword"
-                          className="form-control form-control-lg"
-                          value={repeatPassword}
-                          onChange={(e) => setRepeatPassword(e.target.value)}
                         />
                       </div>
 

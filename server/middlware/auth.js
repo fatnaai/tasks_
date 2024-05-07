@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
+const jwtsecret = process.env.JWT_SECRET || "2002";
 
-const authenticate = (req, res, next) => {
+const auth = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -11,7 +13,7 @@ const authenticate = (req, res, next) => {
 
   const token = authHeader.split(" ")[1];
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+  jwt.verify(token, jwtsecret, (err, decoded) => {
     if (err) {
       if (err.name === "JsonWebTokenError") {
         return res
@@ -32,4 +34,4 @@ const authenticate = (req, res, next) => {
   });
 };
 
-module.exports = authenticate;
+module.exports = auth;
