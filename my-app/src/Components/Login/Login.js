@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
@@ -82,10 +82,10 @@ const Login = () => {
                       </div>
 
                       <p className="text-center text-muted mt-5 mb-0">
-                        Don't have an account yet?{" "}
-                        <a href="#!" className="fw-bold text-body">
-                          <u>Register here</u>
-                        </a>
+                        Don't have an account yet?
+                        <Link to={"/"} className="fw-bold text-body">
+                          Register
+                        </Link>
                       </p>
                     </form>
                   </div>
